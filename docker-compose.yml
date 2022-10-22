@@ -1,0 +1,26 @@
+version: "3.7"
+# docker-composeの書式のバージョンを指定します。(原則、最新を指定する)
+
+services:
+  db:
+    image: mysql:8.0.31
+    environment:
+      MYSQL_USER: user
+      MYSQL_ROOT_PASSWORD: pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/learn-rails-graphql-api-mode/
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
