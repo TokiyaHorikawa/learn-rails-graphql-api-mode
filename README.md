@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 環境構築
 
-Things you may want to cover:
+最初の立ち上げなど
 
-* Ruby version
+```bash
+$ docker-compose build
+```
 
-* System dependencies
+既にビルド済みの場合
 
-* Configuration
+```bash
+$ docker-compose up -d
+```
 
-* Database creation
+http://localhost:3000/
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+参考
+https://qiita.com/Yusuke_Hoirta/items/3a50d066af3bafbb8641
+https://railsguides.jp/api_app.html
